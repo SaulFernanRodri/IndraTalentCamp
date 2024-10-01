@@ -8,8 +8,7 @@ public class Tarea1 {
         String nombre = scanner.nextLine();
 
         System.out.println("Ingrese su edad: ");
-        String edadString = scanner.nextLine();
-        int edad = Integer.parseInt(edadString);
+        int edad = Integer.parseInt(scanner.nextLine());
 
         System.out.println("Ingrese su ciudad de origen: ");
         String ciudad = scanner.nextLine();
