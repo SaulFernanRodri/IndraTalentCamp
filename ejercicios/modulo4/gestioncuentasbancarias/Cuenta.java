@@ -1,4 +1,4 @@
-package ejercicios.modulo4.GestionCuentasBancarias;
+package ejercicios.modulo4.gestioncuentasbancarias;
 
 public abstract class Cuenta implements CuentaBancaria{
     

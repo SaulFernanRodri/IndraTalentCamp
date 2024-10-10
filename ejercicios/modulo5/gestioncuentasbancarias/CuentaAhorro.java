@@ -1,4 +1,4 @@
-package ejercicios.modulo4.GestionCuentasBancarias;
+package ejercicios.modulo5.gestioncuentasbancarias;
 
 public class CuentaAhorro extends Cuenta{
     //tasa de interes en porcentaje

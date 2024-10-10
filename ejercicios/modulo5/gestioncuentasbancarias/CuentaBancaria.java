@@ -1,4 +1,4 @@
-package ejercicios.modulo4.GestionCuentasBancarias;
+package ejercicios.modulo5.gestioncuentasbancarias;
 
 public interface CuentaBancaria {
     //metodo para depositar dinero en la cuenta
