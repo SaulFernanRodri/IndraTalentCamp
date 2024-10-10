@@ -1,3 +1,5 @@
+package Tareas;
+
 import java.util.Scanner;
 
 public class Tarea1 {
