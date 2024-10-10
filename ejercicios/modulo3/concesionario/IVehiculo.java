@@ -1,4 +1,4 @@
-package ejercicios.modulo3;
+package ejercicios.modulo3.concesionario;
 
 public interface IVehiculo {
 

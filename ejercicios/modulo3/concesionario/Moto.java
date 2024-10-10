@@ -1,4 +1,4 @@
-package ejercicios.modulo3;
+package ejercicios.modulo3.concesionario;
 
 public class Moto extends Vehiculo {
     private boolean tieneSidecar;
