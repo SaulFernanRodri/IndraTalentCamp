@@ -1,4 +1,4 @@
-package ejercicios.modulo4.library;
+package tareas.Tarea2;
 
 public class Librarian extends Person {
     private final String employeeId;
@@ -10,12 +10,12 @@ public class Librarian extends Person {
 
     public void addMaterial(Library library, Material material) {
         library.addMaterial(material);
-        System.out.println("Material added to the modulo4.library.");
+        System.out.println("Material added to the library.");
     }
 
     public void removeMaterial(Library library, Material material) {
         library.removeMaterial(material);
-        System.out.println("Material removed from the modulo4.library.");
+        System.out.println("Material removed from the library.");
     }
 
     public void searchMaterial(Library library, String title) {

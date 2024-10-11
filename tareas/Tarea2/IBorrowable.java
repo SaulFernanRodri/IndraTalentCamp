@@ -1,4 +1,4 @@
-package ejercicios.modulo4.library;
+package tareas.Tarea2;
 
 public interface IBorrowable {
     void checkOut();

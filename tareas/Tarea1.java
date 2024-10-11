@@ -6,21 +6,20 @@ public class Tarea1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Ingrese su nombre: ");
-        String nombre = scanner.nextLine();
+        System.out.println("Enter your name: ");
+        String name = scanner.nextLine();
 
-        System.out.println("Ingrese su edad: ");
-        int edad = Integer.parseInt(scanner.nextLine());
+        System.out.println("Enter your age: ");
+        int age = Integer.parseInt(scanner.nextLine());
 
-        System.out.println("Ingrese su ciudad de origen: ");
-        String ciudad = scanner.nextLine();
+        System.out.println("Enter your hometown: ");
+        String hometown = scanner.nextLine();
 
-        System.out.println("Ingrese una frase personalizada: ");
-        String frasePersonalizada = scanner.nextLine();
+        System.out.println("Enter a personalized phrase: ");
+        String personalizedPhrase = scanner.nextLine();
 
-        String fraseCompleta = "Hola, mi nombre es " + nombre + ", tengo " + edad + " años, soy de " + ciudad + " y " + frasePersonalizada;
+        String completePhrase = "Hello, my name is " + name + ", I am " + age + " years old, I am from " + hometown + " and " + personalizedPhrase;
 
-        System.out.println(fraseCompleta);
+        System.out.println(completePhrase);
     }
 }
-
