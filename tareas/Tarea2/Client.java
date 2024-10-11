@@ -4,35 +4,45 @@ import java.util.ArrayList;
 
 public class Client extends Person {
     private final String clientId;
-    private final ArrayList<Book> borrowedBooks;
+    private final ArrayList<Material> borrowedMaterials;
 
     public Client(String name, int age, String clientId) {
         super(name, age);
         this.clientId = clientId;
-        this.borrowedBooks = new ArrayList<>();
+        this.borrowedMaterials = new ArrayList<>();
     }
 
-    public void borrowBook(Book book) {
-        borrowedBooks.add(book);
-        book.checkOut();
+public void borrowMaterial(Material material) {
+    boolean isBorrowed = material.isAvailable();
+    if (isBorrowed) {
+        System.out.println("The material is not available.");
+    } else {
+        borrowedMaterials.add(material);
+        material.checkOut();
     }
+}
 
-    public void returnBook(Book book) {
-        borrowedBooks.remove(book);
-        book.checkIn();
+public void returnMaterial(Material material) {
+    boolean isBorrowed = material.isAvailable();
+    if (!isBorrowed) {
+        System.out.println("The material is not borrowed.");
+    } else {
+        borrowedMaterials.remove(material);
+        material.checkIn();
     }
+}
 
-    private void showBorrowedBooks() {
-        System.out.println("Borrowed Books:");
-        for (Book book : borrowedBooks) {
-            book.showDetails();
-        }
+private void showBorrowedMaterials() {
+    System.out.println("Borrowed Materials:");
+    for (Material material : borrowedMaterials) {
+        material.showDetails();
     }
+}
 
     @Override
     public void showDetails() {
         super.showDetails();
         System.out.println("Client ID: " + clientId);
-        showBorrowedBooks();
+        showBorrowedMaterials();
     }
 }

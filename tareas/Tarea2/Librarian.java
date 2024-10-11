@@ -27,7 +27,7 @@ public class Librarian extends Person {
                 cont++;
             }
         }
-        if (cont>0) {
+        if (cont<0) {
             System.out.println("Material not found.");
         }
     }

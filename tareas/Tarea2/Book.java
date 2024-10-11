@@ -3,13 +3,11 @@ package tareas.Tarea2;
 import java.time.LocalDate;
 
 public class Book extends Material implements IBorrowable {
-    private final int numberOfPages;
-    private boolean isBorrowed;
+    private final int pageCount;
 
-    public Book(String title, String author, LocalDate datePublished, String topic, int numberOfPages) {
+    public Book(String title, String author, LocalDate datePublished, String topic, int pageCount) {
         super(title, author, datePublished, topic);
-        this.numberOfPages = numberOfPages;
-        this.isBorrowed = false;
+        this.pageCount = pageCount;
     }
 
     @Override
@@ -33,15 +31,15 @@ public class Book extends Material implements IBorrowable {
     }
 
     @Override
-    public void isAvailable() {
-        System.out.println(isBorrowed ? "The book is currently borrowed." : "The magazine is available.");
+    public boolean isAvailable() {
+        System.out.println(isBorrowed ? "The book is currently borrowed." : "The book is available.");
+        return isBorrowed;
     }
 
     @Override
     public void showDetails() {
         super.showDetails();
-        System.out.println("Number of Pages: " + numberOfPages);
+        System.out.println("Page Count: " + pageCount);
         System.out.println(isBorrowed ? "The book is currently borrowed." : "The book is available.");
     }
 }
-

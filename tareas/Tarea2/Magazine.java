@@ -2,14 +2,12 @@ package tareas.Tarea2;
 
 import java.time.LocalDate;
 
-public class Magazine extends Material implements IBorrowable {
+public class Magazine extends Material {
     private final int issueNumber;
-    private boolean isBorrowed;
 
     public Magazine(String title, String author, LocalDate datePublished, String topic, int issueNumber) {
         super(title, author, datePublished, topic);
         this.issueNumber = issueNumber;
-        this.isBorrowed = false;
     }
 
     @Override
@@ -33,8 +31,9 @@ public class Magazine extends Material implements IBorrowable {
     }
 
     @Override
-    public void isAvailable() {
+    public boolean isAvailable() {
         System.out.println(isBorrowed ? "The magazine is currently borrowed." : "The magazine is available.");
+        return isBorrowed;
     }
 
     @Override

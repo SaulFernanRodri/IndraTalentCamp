@@ -10,7 +10,6 @@ public class Main {
         Movie movie1 = new Movie("Inception", "Christopher Nolan", LocalDate.of(2010, 7, 16), "Sci-Fi", 148);
         Magazine magazine1 = new Magazine("National Geographic", "Science", LocalDate.of(1888, 9, 22), "Adventure", 100);
 
-
         Library library = new Library();
         Librarian librarian = new Librarian("Juan", 45, "L001");
 
@@ -19,6 +18,7 @@ public class Main {
         librarian.addMaterial(library, movie1);
         librarian.addMaterial(library, magazine1);
 
+        System.out.println("-------------------------------------");
 
         librarian.listAllMaterials(library);
         library.showMaterialsByType("Book");
@@ -26,16 +26,22 @@ public class Main {
         library.showMaterialsByType("Magazine");
         librarian.searchMaterial(library, "1984");
 
+        System.out.println("-------------------------------------");
 
         Client client = new Client("John Doe", 30, "C123");
-        client.borrowBook(book1);
-        client.borrowBook(book2);
+        client.borrowMaterial(book1);
+        client.borrowMaterial(movie1);
+
+        System.out.println("-------------------------------------");
 
         client.showDetails();
 
-        client.returnBook(book1);
+        System.out.println("-------------------------------------");
+
+        client.returnMaterial(book1);
         client.showDetails();
 
+        System.out.println("-------------------------------------");
 
         librarian.removeMaterial(library, book1);
         librarian.listAllMaterials(library);

@@ -2,14 +2,12 @@ package tareas.Tarea2;
 
 import java.time.LocalDate;
 
-public class Movie extends Material implements IBorrowable {
+public class Movie extends Material {
     private final int duration;
-    private boolean isBorrowed;
 
-    public Movie (String title, String author, LocalDate datePublished, String topic, int duration) {
+    public Movie(String title, String author, LocalDate datePublished, String topic, int duration) {
         super(title, author, datePublished, topic);
         this.duration = duration;
-        this.isBorrowed = false;
     }
 
     @Override
@@ -33,8 +31,9 @@ public class Movie extends Material implements IBorrowable {
     }
 
     @Override
-    public void isAvailable() {
+    public boolean isAvailable() {
         System.out.println(isBorrowed ? "The movie is currently borrowed." : "The movie is available.");
+        return isBorrowed;
     }
 
     @Override
