@@ -20,7 +20,7 @@ public class Camion implements VehiculoAlquilable{
         if(alquilado){
             throw new ClienteNoValidoException("El camion ya ha sido alquilado");
         }
-        //Si esta todo bien, alquilamos el auto
+        //Si esta bien, alquilamos el auto
         alquilado = true;
         System.out.println("El camión " + marca + " ha sido alquilado");
     }

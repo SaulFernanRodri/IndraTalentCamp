@@ -10,7 +10,7 @@ public class Tienda {
     private List<Vendedor> vendedores = new ArrayList<>();
     private List<Transaccion> transacciones = new ArrayList<>();
 
-    //Método para agregar autos
+    //Agregar autos
     void agregarAutos(){
         try{
 

@@ -19,7 +19,7 @@ public class Motocicleta implements VehiculoAlquilable{
         if(alquilado){
             throw new ClienteNoValidoException("La motocicleta ya ha sido alquilada");
         }
-        //Si esta todo bien, alquilamos el auto
+        //Si esta bien, alquilamos el auto
         alquilado = true;
         System.out.println("La motocicleta " + marca + " ha sido alquilada");
     }
