@@ -2,9 +2,9 @@ package ejercicios.modulo5.transacciones;
 
 public class TransferenciaNacional implements Transaccion{
     
-    private String titular;
+    private final String titular;
     private double saldoDisponible;
-    private double limiteTransferencia;
+    private final double limiteTransferencia;
 
     public TransferenciaNacional(String titular, double saldoDisponible, double limiteTransferencia){
         this.titular = titular;
@@ -13,7 +13,7 @@ public class TransferenciaNacional implements Transaccion{
     }
 
     @Override
-    public void realizarTransaccion(double monto) throws FondosInsuficientesException, LimiteTransferenciaException{
+    public void realizarTransaccion(double monto) throws FondosInsuficientesException{
         //Verificamos si el monto supera el limite de transferencia
         if( monto > limiteTransferencia){
             throw new FondosInsuficientesException("El monto supera el limite de transferencia bancaria");

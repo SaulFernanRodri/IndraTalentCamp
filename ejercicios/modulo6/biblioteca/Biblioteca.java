@@ -6,9 +6,9 @@ import javax.swing.*;
 
 public class Biblioteca {
 
-    private HashMap<String, Usuario> usuarios;
+    private final HashMap<String, Usuario> usuarios;
 
-    private ArrayList<Libro> libros;
+    private final ArrayList<Libro> libros;
 
     public Biblioteca() {
         usuarios = new HashMap<>();
@@ -75,7 +75,7 @@ public class Biblioteca {
     // metodo para buscar libro
     private Usuario buscarUsuario(String id) throws UsuarioNoRegistradoException {
         Usuario usuario = usuarios.get(id);
-        if (usuarios == null) {
+        if (usuario == null) {
             throw new UsuarioNoRegistradoException("Error: usuario no registrado");
         }
         return usuario;
@@ -98,13 +98,14 @@ public class Biblioteca {
 
         while (!salir) {
             String opcion = JOptionPane.showInputDialog(
-                    "Menú de la biblioteca:\n" +
-                            "1. Agregar usuario\n" +
-                            "2. Agregar Libro\n" +
-                            "3. Prestar libro\n" +
-                            "4. Devolver libro\n" +
-                            "5. Salir\n" +
-                            "Ingrese la opción:");
+                    """
+                            Menú de la biblioteca:
+                            1. Agregar usuario
+                            2. Agregar Libro
+                            3. Prestar libro
+                            4. Devolver libro
+                            5. Salir
+                            Ingrese la opción:""");
             switch (opcion) {
                 case "1":
                     biblioteca.agregarUsuario();

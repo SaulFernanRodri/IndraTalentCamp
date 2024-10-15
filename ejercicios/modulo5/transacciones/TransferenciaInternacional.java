@@ -1,9 +1,9 @@
 package ejercicios.modulo5.transacciones;
 
 public class TransferenciaInternacional implements Transaccion{
-    private String titular;
+    private final String titular;
     private double saldoDisponible;
-    private double limiteTransferencia;
+    private final double limiteTransferencia;
 
     //Constructor
     public TransferenciaInternacional(String titular, double saldoDisponible, double limiteTransferencia){

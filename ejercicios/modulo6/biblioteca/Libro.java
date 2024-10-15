@@ -3,8 +3,8 @@ package ejercicios.modulo6.biblioteca;
 
 public class Libro {
 
-    private String titulo;
-    private String autor;
+    private  final String titulo;
+    private final String autor;
     private boolean disponible;
 
     public Libro(String titulo, String autor){

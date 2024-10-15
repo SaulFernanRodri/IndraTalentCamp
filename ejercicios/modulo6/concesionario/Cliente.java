@@ -1,7 +1,7 @@
 package ejercicios.modulo6.concesionario;
 
 public class Cliente extends Persona{
-    private String telefono;
+    private final String telefono;
 
     public Cliente(String nombre, String direccion, String telefono){
         super(nombre, direccion);

@@ -2,7 +2,7 @@ package ejercicios.modulo5.vehiculosenalquiler;
 
 public class Camion implements VehiculoAlquilable{
 
-    private String marca;
+    private final String marca;
     private boolean alquilado;
 
     public Camion(String marca){

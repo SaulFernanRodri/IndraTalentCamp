@@ -4,10 +4,10 @@ import java.util.Date;
 
 public class Transaccion {
     
-    private Cliente cliente;
-    private Vendedor vendedor;
-    private Auto auto;
-    private Date fecha;
+    private final Cliente cliente;
+    private final Vendedor vendedor;
+    private final Auto auto;
+    private final Date fecha;
 
     public Transaccion(Cliente cliente, Vendedor vendedor, Auto auto){
         this.cliente = cliente;

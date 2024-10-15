@@ -1,10 +1,10 @@
 package ejercicios.modulo6.concesionario;
 
 public class Auto {
-    
-    private String marca;
-    private String modelo;
-    private double precio;
+
+    private final String marca;
+    private final String modelo;
+    private final double precio;
 
     public Auto(String marca, String modelo, double precio){
         this.marca = marca;

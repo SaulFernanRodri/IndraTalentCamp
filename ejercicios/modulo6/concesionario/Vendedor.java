@@ -2,7 +2,7 @@ package ejercicios.modulo6.concesionario;
 
 public class Vendedor extends Persona{
 
-    private double salario;
+    private final double salario;
 
     public Vendedor(String nombre, String direccion, double salario){
         super(nombre, direccion);

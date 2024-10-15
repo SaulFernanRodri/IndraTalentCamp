@@ -5,10 +5,10 @@ import java.util.*;
 
 public class Tienda {
     
-    private List<Auto> autos = new ArrayList<>();
-    private List<Cliente> clientes = new ArrayList<>();
-    private List<Vendedor> vendedores = new ArrayList<>();
-    private List<Transaccion> transacciones = new ArrayList<>();
+    private final ArrayList<Auto> autos = new ArrayList<>();
+    private final ArrayList<Cliente> clientes = new ArrayList<>();
+    private final ArrayList<Vendedor> vendedores = new ArrayList<>();
+    private final ArrayList<Transaccion> transacciones = new ArrayList<>();
 
     //Agregar autos
     void agregarAutos(){
@@ -76,7 +76,7 @@ public class Tienda {
         String nombreCliente = JOptionPane.showInputDialog("Ingrese el nombre del cliente para la venta: ");
         Cliente cliente = buscarCliente(nombreCliente); //Buscamos el cliente en la lista de clientes
     
-        if( clientes == null){
+        if( cliente == null){
             System.out.println("Error: cliente no encontrado");
             return;
         }
@@ -143,14 +143,9 @@ public class Tienda {
             System.out.println("No se han realizado transacciones");
             return;
         }
-
-        StringBuilder detalles = new StringBuilder();
-
         for(Transaccion transaccion : transacciones){
             transaccion.mostrarDetalles();
         }
-        JOptionPane.showMessageDialog(null, detalles.toString());
-
     }
     public static void main(String[] args) {
         Tienda tienda = new Tienda();
@@ -159,14 +154,15 @@ public class Tienda {
 
         while (!salir) {
             String opcion = JOptionPane.showInputDialog(
-                                "Menu:\n"+
-                                "1. Agregar auto\n"+
-                                "2. Agregar Cliente\n"+
-                                "3. Agregar Vendedor\n"+
-                                "4. Realizar Venta\n"+
-                                "5. Mostrar transacciones\n"+
-                                "6. Salir\n"+
-                                "Ingrese una opción:"
+                    """
+                            Menu:
+                            1. Agregar auto
+                            2. Agregar Cliente
+                            3. Agregar Vendedor
+                            4. Realizar Venta
+                            5. Mostrar transacciones
+                            6. Salir
+                            Ingrese una opción:"""
             );
             switch (opcion) {
                 case "1":
