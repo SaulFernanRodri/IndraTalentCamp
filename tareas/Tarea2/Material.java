@@ -2,7 +2,7 @@ package tareas.Tarea2;
 
 import java.time.LocalDate;
 
-public abstract class Material {
+public abstract class Material implements IBorrowable {
     private String title;
     private String author;
     private String topic;

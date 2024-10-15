@@ -2,38 +2,43 @@ package tareas.Tarea2;
 
 public class Librarian extends Person {
     private final String employeeId;
+    private final Library library;
 
     public Librarian(String name, int age, String employeeId) {
         super(name, age);
         this.employeeId = employeeId;
+        this.library = new Library();
     }
 
-    public void addMaterial(Library library, Material material) {
+    public void addMaterial(Material material) {
         library.addMaterial(material);
         System.out.println("Material added to the library.");
     }
 
-    public void removeMaterial(Library library, Material material) {
+    public void removeMaterial(Material material) {
         library.removeMaterial(material);
         System.out.println("Material removed from the library.");
     }
 
-    public void searchMaterial(Library library, String title) {
-        int cont=0;
+    public Material searchMaterial(String title) {
         for (Material material : library.getMaterials()) {
             if (material.getTitle().equalsIgnoreCase(title)) {
-
                 material.showDetails();
-                cont++;
+                return material;
             }
         }
-        if (cont<0) {
-            System.out.println("Material not found.");
-        }
+        System.out.println("Material not found.");
+        return null;
     }
 
-    public void listAllMaterials(Library library) {
+
+
+    public void listAllMaterials() {
         library.showAllMaterials();
+    }
+
+    public void listMaterialsByType(String type) {
+        library.showMaterialsByType(type);
     }
 
     @Override

@@ -33,4 +33,15 @@ public class SistemaGestion {
         empleado.setRoll(roll);
     }
 
+    @Operacion(nombre = "Buscar Empleado por nombre")
+    public Empleado buscarEmpleado(String nombre){
+        for (Empleado empleado : empleados) {
+            if (empleado.getNombre().equals(nombre)) {
+                System.out.println(empleado);
+                return empleado;
+            }
+        }
+        return null;
+    }
+
 }

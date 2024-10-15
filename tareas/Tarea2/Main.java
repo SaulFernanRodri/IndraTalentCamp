@@ -10,21 +10,20 @@ public class Main {
         Movie movie1 = new Movie("Inception", "Christopher Nolan", LocalDate.of(2010, 7, 16), "Sci-Fi", 148);
         Magazine magazine1 = new Magazine("National Geographic", "Science", LocalDate.of(1888, 9, 22), "Adventure", 100);
 
-        Library library = new Library();
         Librarian librarian = new Librarian("Juan", 45, "L001");
 
-        librarian.addMaterial(library, book1);
-        librarian.addMaterial(library, book2);
-        librarian.addMaterial(library, movie1);
-        librarian.addMaterial(library, magazine1);
+        librarian.addMaterial(book1);
+        librarian.addMaterial(book2);
+        librarian.addMaterial(movie1);
+        librarian.addMaterial(magazine1);
 
         System.out.println("-------------------------------------");
 
-        librarian.listAllMaterials(library);
-        library.showMaterialsByType("Book");
-        library.showMaterialsByType("Movie");
-        library.showMaterialsByType("Magazine");
-        librarian.searchMaterial(library, "1984");
+        librarian.listAllMaterials();
+        librarian.listMaterialsByType("Book");
+        librarian.listMaterialsByType("Movie");
+        librarian.listMaterialsByType("Magazine");
+        librarian.searchMaterial("1984");
 
         System.out.println("-------------------------------------");
 
@@ -43,7 +42,7 @@ public class Main {
 
         System.out.println("-------------------------------------");
 
-        librarian.removeMaterial(library, book1);
-        librarian.listAllMaterials(library);
+        librarian.removeMaterial(book1);
+        librarian.listAllMaterials();
     }
 }
