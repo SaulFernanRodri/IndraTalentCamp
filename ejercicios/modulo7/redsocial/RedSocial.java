@@ -6,7 +6,7 @@ import java.util.*;
 
 public class RedSocial {
     // inicializamos el array list para usuarios
-    private List<Usuario> usuarios;
+    private final List<Usuario> usuarios;
 
     // metodo constructor
     public RedSocial() {
@@ -19,25 +19,20 @@ public class RedSocial {
         String nombre = JOptionPane.showInputDialog("Ingrese el nombre del usuario:");
 
         // Uso de JComboBox para seleccionar el tipo de usuario
-        String[] opcionesUsuario = { "NORMAL", "ADMIN" };
-        String tipo = (String) JOptionPane.showInputDialog(
-                null,
-                "Seleccione el tipo de usuario:",
-                "Tipo de usuario",
-                JOptionPane.QUESTION_MESSAGE,
-                null,
-                opcionesUsuario,
-                opcionesUsuario[0] // selección por defecto
+        String[] opcionesUsuario = {"NORMAL", "ADMIN"};
+        String tipo = (String) JOptionPane.showInputDialog(null, "Seleccione el tipo de usuario:", "Tipo de usuario", JOptionPane.QUESTION_MESSAGE, null, opcionesUsuario, opcionesUsuario[0] // selección por defecto
         );
-        // mostrar los datos ingresados en la consola
+
         System.out.println("Registrando usuario: " + nombre + ", Tipo: " + tipo);
 
-        // uso de operador ternario para seleccionar el tipo de usuario
-        Usuario nuevoUsuario = tipo.equalsIgnoreCase("NORMAL")
-                ? new UsuarioNormal(nombre)
-                : tipo.equalsIgnoreCase("ADMIN")
-                        ? new Administrador(nombre)
-                        : null;
+
+        Usuario nuevoUsuario;
+
+        if (tipo.equalsIgnoreCase("NORMAL")) {
+            nuevoUsuario = new UsuarioNormal(nombre);
+        } else {
+            nuevoUsuario = tipo.equalsIgnoreCase("ADMIN") ? new Administrador(nombre) : null;
+        }
 
         // Verificamos si el usuario no es null
         if (nuevoUsuario != null) {
@@ -78,10 +73,7 @@ public class RedSocial {
 
     // metodo para buscar un usuario
     public Usuario buscarUsuario(String nombre) {
-        Usuario usuario = usuarios.stream()
-                .filter(u -> u.getNombre().equalsIgnoreCase(nombre))
-                .findFirst()
-                .orElse(null);
+        Usuario usuario = usuarios.stream().filter(u -> u.getNombre().equalsIgnoreCase(nombre)).findFirst().orElse(null);
         if (usuario != null) {
             System.out.println("Usuario encontrado: " + usuario.getNombre());
         } else {
@@ -142,22 +134,13 @@ public class RedSocial {
         List<Usuario> administradores = obtenerAdministradores();
 
         // Llenar el JComboBox con los nombres del los administradores
-        String[] nombreAdmins = administradores.stream()
-                .map(Usuario::getNombre)
-                .toArray(String[]::new);
+        String[] nombreAdmins = administradores.stream().map(Usuario::getNombre).toArray(String[]::new);
 
         if (nombreAdmins.length == 0) {
             System.out.println("No hay administradores disponibles");
         }
 
-        String nombreAdminSeleccionado = (String) JOptionPane.showInputDialog(
-                null,
-                "Seleccione un administrador:",
-                "Administradores",
-                JOptionPane.QUESTION_MESSAGE,
-                null,
-                nombreAdmins,
-                nombreAdmins[0] // selección por defecto
+        String nombreAdminSeleccionado = (String) JOptionPane.showInputDialog(null, "Seleccione un administrador:", "Administradores", JOptionPane.QUESTION_MESSAGE, null, nombreAdmins, nombreAdmins[0] // selección por defecto
         );
 
         if (nombreAdminSeleccionado != null) {
@@ -166,8 +149,7 @@ public class RedSocial {
             System.out.println("Intentando eliminar publicación como administrador: " + nombreAdminSeleccionado);
 
             if (admin instanceof Administrador) {
-                String nombreUsuario = JOptionPane
-                        .showInputDialog("Ingrese el nombre del usuario que desea gestionar: ");
+                String nombreUsuario = JOptionPane.showInputDialog("Ingrese el nombre del usuario que desea gestionar: ");
 
                 Usuario usuario = buscarUsuario(nombreUsuario);
 
@@ -198,15 +180,7 @@ public class RedSocial {
 
         boolean salir = false;
         while (!salir) {
-            String opcion = JOptionPane.showInputDialog(
-                    "Menú de red social:\n" +
-                            "1. Registrar usuario\n" +
-                            "2. Publicar mensaje\n" +
-                            "3. Mostrar publicaciones\n" +
-                            "4. Seguir a usuario\n" +
-                            "5. Eliminar publicaciones (ADMIN)\n" +
-                            "6. Salir\n" +
-                            "Seleccione una opción:");
+            String opcion = JOptionPane.showInputDialog("Menú de red social:\n" + "1. Registrar usuario\n" + "2. Publicar mensaje\n" + "3. Mostrar publicaciones\n" + "4. Seguir a usuario\n" + "5. Eliminar publicaciones (ADMIN)\n" + "6. Salir\n" + "Seleccione una opción:");
 
             try {
                 int opcionInt = Integer.parseInt(opcion);
