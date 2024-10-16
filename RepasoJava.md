@@ -1,7 +1,7 @@
 
-**Repaso Java**
+## Repaso Java
 
-**Herencia**
+## Herencia
 
 En Java, una clase hija hereda de una clase padre, permitiendo reutilizar código y organizar las clases en una jerarquía.
 
@@ -55,7 +55,7 @@ public class Main {
 }
 ```
 
-**Polimorfismo**
+## Polimorfismo
 
 La capacidad de un método para actuar de diferentes maneras dependiendo del objeto que lo invoque. Un mismo método puede tener múltiples implementaciones según la clase que lo defina.
 
@@ -76,7 +76,7 @@ public class Main {
 }
 ```
 
-**Abstracta**
+## Abstracta
 
 Significa que no se puede crear una instancia directamente de esa clase.
 
@@ -112,7 +112,7 @@ public class Medico extends Persona {
 }
 ```
 
-**Static**
+## Static
 
 El modificador static en Java se usa para definir miembros de clase en lugar de miembros de instancia. Un miembro estático pertenece a la clase en sí, no a una instancia específica de la clase.
 
@@ -145,7 +145,7 @@ public class Main {
 
 ```
 
-**Private**
+## Private
 
 El modificador private se usa para declarar atributos o métodos privados, lo que significa que solo pueden ser accedidos dentro de la misma clase. No se pueden usar fuera de la clase ni por otras clases, lo que garantiza el encapsulamiento y protege la lógica interna de la clase.
 
@@ -183,7 +183,7 @@ public class Main {
 }
 ```
 
-**Public**
+## Public
 
 El modificador public permite que un atributo o método sea accesible desde cualquier parte del programa. Los elementos públicos son visibles desde otras clases o paquetes.
 
@@ -221,9 +221,9 @@ public class Main {
 }
 ```
 
-**Protected**
+## Protected
 
-Accesible por las clases herederas
+Accesible por las clases herederas, pero la clase padre no puede acceder a los atributos de la clase hija.
 
 
 
