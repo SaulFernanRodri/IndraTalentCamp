@@ -225,5 +225,20 @@ public class Main {
 
 Accesible por las clases herederas, pero la clase padre no puede acceder a los atributos de la clase hija.
 
+## Lamdas
+
+Las expresiones lambda son funciones anónimas que permiten pasar bloques de código como argumentos a métodos o funciones. Se utilizan para simplificar la sintaxis y mejorar la legibilidad del código.
+```java
+public class Main {
+    public static void main(String[] args) {
+        List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5);
+
+        // Usando una expresión lambda para imprimir cada número
+        numeros.forEach(n -> System.out.println(n));
+        // Otra forma de escribirlo
+        numeros.forEach(System.out::println);
+    }
+}
+```
 
 
