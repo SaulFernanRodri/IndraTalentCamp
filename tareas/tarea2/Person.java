@@ -1,4 +1,4 @@
-package tareas.Tarea2;
+package tareas.tarea2;
 
 public class Person {
     protected String name;

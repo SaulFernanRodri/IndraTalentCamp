@@ -1,4 +1,4 @@
-package tareas.Tarea2;
+package tareas.tarea2;
 
 import javax.swing.JOptionPane;
 import java.time.LocalDate;

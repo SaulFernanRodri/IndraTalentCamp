@@ -110,7 +110,7 @@ Este archivo cubre los conceptos y comandos básicos para trabajar con Git de ma
      ```bash
      git merge nombre_rama
      git rebase nombre_rama
-     git cherry-pick
+     git cherry-pick <commit_hash>
      ```
 
 ### f) Eliminar un commit (revertir cambios)
