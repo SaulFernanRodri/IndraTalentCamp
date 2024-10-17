@@ -2,7 +2,7 @@ package ejercicios.modulo7.redsocial;
 
 import java.util.*;
 
-abstract class Usuario implements Publicable{
+abstract class Usuario implements IPublicable {
     protected String nombre;
     protected List<String> seguidores;
     protected List<String> publicaciones;

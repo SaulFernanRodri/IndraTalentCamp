@@ -61,11 +61,15 @@ public abstract class Event {
     public abstract void showDetails();
 
     public void addParticipant(Participant participant) {
-        if (!participant.isAvailable(this)) {
-            throw new InscriptionNotPermitedException("No se pueden inscribir");
+        try{
+            if (!participant.isAvailable(this)) {
+                throw new InscriptionNotPermitedException("No se pueden inscribir");
+            }
+            participants.add(participant);
+            participant.addEvent(this);
+        } catch (InscriptionNotPermitedException e) {
+            System.out.println(e.getMessage());
         }
-        participants.add(participant);
-        participant.addEvent(this);
     }
 
     @Override

@@ -14,7 +14,7 @@ public class EventPlanner {
     }
 
 
-    public void addEvent(Event event) {
+    public void addEvent() {
         String tipo = JOptionPane.showInputDialog("Ingrese el tipo de evento: ");
         String nombre = JOptionPane.showInputDialog("Ingrese el nombre del evento: ");
         LocalDate fecha = LocalDate.parse(JOptionPane.showInputDialog("Ingrese la fecha del evento: "));
@@ -70,6 +70,27 @@ public class EventPlanner {
             }
         }
         return null;
+    }
+
+    public Participant searchParticipants(String name) {
+        for (Participant p : participants) {
+            if (p.getName().equalsIgnoreCase(name)) {
+                return p;
+            }
+        }
+        return null;
+    }
+
+    public void showEvents() {
+        for (Event e : events) {
+            e.showDetails();
+        }
+    }
+
+    public void showParticipants() {
+        for (Participant p : participants) {
+            p.toString();
+        }
     }
 
 }

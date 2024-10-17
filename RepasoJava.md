@@ -1,6 +1,7 @@
 
 ## Repaso Java
 
+---
 ## Herencia
 
 En Java, una clase hija hereda de una clase padre, permitiendo reutilizar código y organizar las clases en una jerarquía.
@@ -54,7 +55,7 @@ public class Main {
     }
 }
 ```
-
+---
 ## Polimorfismo
 
 La capacidad de un método para actuar de diferentes maneras dependiendo del objeto que lo invoque. Un mismo método puede tener múltiples implementaciones según la clase que lo defina.
@@ -75,7 +76,7 @@ public class Main {
     }
 }
 ```
-
+---
 ## Abstracta
 
 Significa que no se puede crear una instancia directamente de esa clase.
@@ -111,7 +112,7 @@ public class Medico extends Persona {
     }
 }
 ```
-
+---
 ## Static
 
 El modificador static en Java se usa para definir miembros de clase en lugar de miembros de instancia. Un miembro estático pertenece a la clase en sí, no a una instancia específica de la clase.
@@ -144,7 +145,7 @@ public class Main {
 }
 
 ```
-
+---
 ## Private
 
 El modificador private se usa para declarar atributos o métodos privados, lo que significa que solo pueden ser accedidos dentro de la misma clase. No se pueden usar fuera de la clase ni por otras clases, lo que garantiza el encapsulamiento y protege la lógica interna de la clase.
@@ -182,6 +183,7 @@ public class Main {
     }
 }
 ```
+---
 
 ## Public
 
@@ -220,12 +222,14 @@ public class Main {
 
 }
 ```
-
+---
+        
 ## Protected
 
 Accesible por las clases herederas, pero la clase padre no puede acceder a los atributos de la clase hija.
 
-## Lamdas
+---
+## Expresiones Lamda
 
 Las expresiones lambda son funciones anónimas que permiten pasar bloques de código como argumentos a métodos o funciones. Se utilizan para simplificar la sintaxis y mejorar la legibilidad del código.
 ```java
@@ -235,10 +239,179 @@ public class Main {
 
         // Usando una expresión lambda para imprimir cada número
         numeros.forEach(n -> System.out.println(n));
-        // Otra forma de escribirlo
-        numeros.forEach(System.out::println);
+    }
+}
+```
+---
+## Interfaz `Consumer`
+
+La interfaz `Consumer<T>` es parte del paquete `java.util.function` y está diseñada para operaciones que aceptan un único argumento de entrada y no devuelven ningún resultado. Es una interfaz funcional, lo que significa que tiene un solo método abstracto.
+
+### Método principal
+
+```java
+void accept(T t);
+```
+
+El método `accept` toma un argumento de tipo `T` y no devuelve nada. Generalmente, se utiliza para ejecutar algún tipo de operación con el objeto proporcionado, como imprimirlo, modificar su estado, etc.
+
+### Ejemplo
+
+A continuación, un ejemplo de cómo se puede usar un `Consumer` en Java:
+
+```java
+import java.util.function.Consumer;
+
+public class ConsumerExample {
+    public static void main(String[] args) {
+        Consumer<String> printConsumer = s -> System.out.println(s);
+        
+        printConsumer.accept("Hola Mundo!"); // Imprime: Hola Mundo!
     }
 }
 ```
 
+En este caso, el `Consumer` toma un `String` como entrada y simplemente lo imprime en la consola.
+
+### Aplicaciones comunes
+- Utilizado en métodos de procesamiento de colecciones como `forEach`.
+- Puede usarse en flujos (Streams) para realizar operaciones sobre los elementos del flujo sin modificar su resultado.
+
+---
+
+## Interfaz `Runnable`
+
+La interfaz `Runnable` está en el paquete `java.lang` y es una de las interfaces más básicas de Java, utilizada para representar una tarea que se puede ejecutar en un hilo. Esta interfaz es funcional, ya que tiene un solo método abstracto.
+
+### Método principal
+
+```java
+void run();
+```
+
+El método `run` no toma parámetros ni devuelve nada. Generalmente, se usa para definir el código que se ejecutará en un hilo separado.
+
+### Ejemplo
+
+Aquí un ejemplo básico del uso de `Runnable`:
+
+```java
+public class RunnableExample {
+    public static void main(String[] args) {
+        Runnable task = () -> {
+            System.out.println("Tarea ejecutándose en un hilo.");
+        };
+
+        Thread thread = new Thread(task);
+        thread.start();
+    }
+}
+```
+
+En este ejemplo, la interfaz `Runnable` se usa para definir una tarea que imprime un mensaje en la consola. Esta tarea se ejecuta en un hilo separado utilizando la clase `Thread`.
+
+### Aplicaciones comunes
+- Ejecutar tareas en un nuevo hilo de manera asíncrona.
+- Es la base para crear hilos personalizados o administrar el comportamiento de hilos en clases como `ThreadPoolExecutor`.
+
+---
+
+## Comparación entre `Consumer` y `Runnable`
+
+| Aspecto       | `Consumer<T>`                                    | `Runnable`                                  |
+|---------------|--------------------------------------------------|---------------------------------------------|
+| Paquete       | `java.util.function`                             | `java.lang`                                |
+| Método        | `accept(T t)`                                    | `run()`                                     |
+| Parámetros    | Acepta un argumento de entrada de tipo `T`        | No acepta parámetros                       |
+| Valor de retorno | No devuelve valor (void)                        | No devuelve valor (void)                   |
+| Uso principal | Procesar un valor sin devolver nada               | Ejecutar una tarea en un hilo               |
+
+---
+
+## Sintaxis de manejo de excepciones
+
+Java utiliza los bloques `try`, `catch`, `finally`, `throw` y `throws`para manejar excepciones:
+
+### Estructura básica
+
+```java
+try {
+    // Código que puede lanzar una excepción
+} catch (TipoDeExcepcion e) {
+    // Código para manejar la excepción
+} finally {
+    // Código que se ejecuta siempre, haya o no una excepción
+}
+```
+
+### Ejemplo
+
+```java
+public class ExcepcionEjemplo {
+    public static void main(String[] args) {
+        try {
+            int resultado = 10 / 0; // Esto lanzará ArithmeticException
+        } catch (ArithmeticException e) {
+            System.out.println("Se produjo una excepción: " + e.getMessage());
+        } finally {
+            System.out.println("Este bloque se ejecuta siempre.");
+        }
+    }
+}
+```
+
+### Uso del bloque `finally`
+
+El bloque `finally` se ejecuta siempre, independientemente de si se produjo una excepción o no. Es útil para liberar recursos, como cerrar archivos o conexiones a bases de datos.
+
+### Lanzamiento de excepciones con `throw` y `throws`
+
+```java
+public class LanzarExcepcion {
+    public static void main(String[] args) {
+        try {
+            lanzarExcepcion();
+        } catch (IllegalArgumentException e) {
+            System.out.println("Excepción capturada: " + e.getMessage());
+        }
+    }
+
+    public static void lanzarExcepcion() throws IllegalArgumentException{
+        throw new IllegalArgumentException("Este es un argumento ilegal");
+    }
+}
+```
+
+## Creación de excepciones personalizadas
+
+Es posible crear clases de excepciones personalizadas que extiendan de `Exception` o `RuntimeException`:
+
+```java
+class MiExcepcion extends Exception {
+    public MiExcepcion(String mensaje) {
+        super(mensaje);
+    }
+}
+
+public class ExcepcionPersonalizadaEjemplo {
+    public static void main(String[] args) {
+        try {
+            lanzarMiExcepcion();
+        } catch (MiExcepcion e) {
+            System.out.println("Capturada excepción personalizada: " + e.getMessage());
+        }
+    }
+
+    public static void lanzarMiExcepcion() throws MiExcepcion {
+        throw new MiExcepcion("Esto es una excepción personalizada");
+    }
+}
+```
+
+## Principales tipos de excepciones en Java
+
+- **`NullPointerException`**: Ocurre cuando se intenta acceder a un objeto cuyo valor es `null`.
+- **`ArrayIndexOutOfBoundsException`**: Ocurre cuando se accede a una posición fuera de los límites de un array.
+- **`ClassNotFoundException`**: Ocurre cuando la JVM no puede encontrar la clase especificada.
+- **`IOException`**: Relacionada con la entrada/salida, como la lectura o escritura de archivos.
 
